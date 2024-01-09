@@ -17,14 +17,24 @@
     background-color: #000;
   }
 
+  #loading-splash {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
   #loading-logo {
     max-width: 70vw;
-    max-height: 40vh;
+    max-height: 30vh;
+    height: 100vh;
+    width: auto;
   }
 </style>
 
 <body>
-  <img id="loading-logo" src="images/logo.png" alt="Sad Gabi logo">
+  <div id="loading-splash">
+    <img id="loading-logo" src="images/logo.png" alt="Sad Gabi logo">
+  </div>
 </body>
 
 </html>
