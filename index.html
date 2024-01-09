@@ -29,11 +29,30 @@
   #loading-splash {
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
     color: #fff;
     font-family: Cormorant;
     font-size: 24px;
-    gap: 20px;
+    gap: 40px;
+  }
+
+  #loading-logo {
+    height: 30vh;
+    width: fit-content;
+    animation: logo-anim infinite forwards;
+  }
+
+  @keyframes logo-anim {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 </style>
 
