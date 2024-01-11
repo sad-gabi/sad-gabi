@@ -1,0 +1,726 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/MontserratAlternates-Regular.ttf);
+}
+
+@font-face {
+    font-family: MontserratBold;
+    src: url(../fonts/MontserratAlternates-Bold.ttf);
+}
+
+@font-face {
+    font-family: Jost;
+    src: url(../fonts/Jost-Regular.ttf);
+}
+
+#submitButton.active {
+    background-image: linear-gradient(to right, #b923ff, #3341ff);
+    color: white;
+    cursor: pointer;
+    border: 0;
+}
+
+html,
+body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/bg_img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a1a1a120;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a1a1a140;
+}
+
+a {
+    text-decoration: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    z-index: 900;
+}
+
+.AI_chat_vp {
+    border-radius: 20px;
+    background-color: #1a1a1a;
+    margin: 0;
+    border: 10px #666666;
+    width: 50%;
+    max-width: 800px;
+    min-width: 500px;
+    height: 90%;
+    max-height: 90%;
+    box-shadow: 0px 3px 10px 5px #00000070;
+    position: absolute;
+    display: none;
+    overflow: auto;
+    z-index: 999;
+}
+
+.mainvp {
+    flex: 1;
+    border-radius: 20px;
+    background-color: #1a1a1a;
+    padding: 0;
+    padding-bottom: 25px;
+    margin: 0;
+    border: 10px #666666;
+    width: 50%;
+    max-width: 50%;
+    height: 75%;
+    box-shadow: 0px 3px 10px 5px #00000070;
+    overflow: auto;
+    position: relative;
+}
+
+.header {
+    position: sticky;
+    padding: 25px;
+    padding-left: 50px;
+    padding-right: 150px;
+    box-shadow: 0px 0px 16px 5px #ffffff20;
+    background-color: #1a1a1a;
+    top: 0;
+    z-index: 10;
+}
+
+.header_chat {
+    position: sticky;
+    padding: 25px;
+    padding-right: 50px;
+    padding-left: 150px;
+    box-shadow: 0px 0px 16px 5px #ffffff20;
+    background-color: #1a1a1a;
+    top: 0;
+}
+
+.beta {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    font-family: MontserratBold;
+    color: white;
+    border: 0;
+    background-image: linear-gradient(to right, #b923ff, #3341ff);
+}
+
+.messagef_chat {
+    position: sticky;
+    padding: 25px;
+    padding-right: 50px;
+    padding-left: 50px;
+    box-shadow: 0px 0px 16px 5px #ffffff20;
+    background-color: #1a1a1a;
+    bottom: 0;
+    text-align: center;
+}
+
+.content {
+    padding: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    z-index: 2
+}
+
+.content_serv {
+    padding: 0;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    z-index: 2
+}
+
+.content_serv button {
+    border: 0;
+    background-color: #00000000;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    max-height: 150px;
+    min-height: 150px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.content_serv button:hover {
+    background-image: linear-gradient(to right, #b923ff, #3341ff);
+}
+
+.content_serv button h4 {
+    transition: color 0.3s ease;
+    ;
+}
+
+.content_serv button:hover h4 {
+    color: white;
+}
+
+.serv_card {
+    display: block;
+    align-items: center;
+    width: fit-content;
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 10000px;
+    background-color: #1a1a1a;
+    transition: background-color 0.3s ease;
+}
+
+.serv_card:hover {
+    background-color: transparent;
+}
+
+.prtflcard {
+    height: auto;
+    margin: 0;
+    border-radius: 20px;
+    min-height: 90%;
+    box-shadow: 0px 0px 10px 5px #ffffff20;
+    overflow: hidden;
+    position: relative;
+    background-image: linear-gradient(to right, #b923ff, #3341ff);
+}
+
+.prtflcard:hover h4 {
+    cursor: pointer;
+    color: white;
+}
+
+.prtflcardi {
+    display: flex;
+    padding-left: 25px;
+    padding-right: 25px;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: -webkit-fill-available;
+    min-width: -webkit-fill-available;
+    min-height: 100%;
+    overflow: auto;
+    background-color: #1a1a1a;
+    transition: background-color 0.3s ease;
+}
+
+.prtflcardi:hover {
+    background-color: transparent;
+}
+
+.chat {
+    padding: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: auto;
+    background-color: #1a1a1a;
+    z-index: 999;
+}
+
+textarea {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    border-color: #666666;
+    border-style: solid;
+    background-color: #ffffff10;
+    font-family: Montserrat;
+    color: #ffffff95;
+    font-size: 14px;
+
+}
+
+textarea[type="text"] {
+    color: #ffffff;
+}
+
+
+.logo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 50px;
+    top: 25px;
+    border-radius: 50%;
+    width: 81px;
+    height: 81px;
+    background-image: linear-gradient(to right, #b923ff, #3341ff);
+}
+
+.logo_chat {
+    position: absolute;
+    left: 50px;
+    top: 25px;
+}
+
+.action {
+    padding: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.action button {
+    border-radius: 10px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-family: MontserratBold;
+    font-size: 18px;
+    color: white;
+    border: 0;
+    background-image: linear-gradient(to right, #b923ff, #3341ff);
+    cursor: pointer;
+    transition: font-size 0.3s ease;
+}
+
+.action button:hover {
+    font-size: 20px;
+}
+
+.scnets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+}
+
+.scnets button {
+    background-color: #1a1a1a;
+    padding: 0;
+    border: 0;
+}
+
+.scnets button:hover {
+    cursor: pointer;
+}
+
+.scnets a {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.pages1 {
+    margin: 0;
+    text-align: center;
+    height: 75%;
+    overflow-y: auto;
+    /* Change the writing direction to right-to-left */
+    direction: rtl;
+    /* Flip the container horizontally */
+    transform: scaleX(1);
+}
+
+.pages {
+    margin: 0;
+    text-align: center;
+    height: 75%;
+    overflow: auto;
+}
+
+.pages button {
+    width: 75px;
+    max-width: 75px;
+    height: 75px;
+    max-height: 75px;
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    margin-bottom: 10px;
+    border: 0;
+    box-shadow: 0px 3px 10px 5px #00000070;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0;
+    padding-bottom: 8px;
+}
+
+.pages1 button {
+    width: 75px;
+    max-width: 75px;
+    height: 75px;
+    max-height: 75px;
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    margin-bottom: 10px;
+    border: 0;
+    box-shadow: 0px 3px 10px 5px #00000070;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0;
+    padding-bottom: 8px;
+    transition: font-size 0.3s ease;
+}
+
+.pages1 button:hover {
+    font-size: 36px;
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    border-color: #666666;
+    border-style: solid;
+    background-color: #282828;
+    font-family: Montserrat;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+input[type="text"] {
+    color: #ffffff;
+}
+
+::placeholder {
+    color: #ffffff90;
+}
+
+p {
+    margin-bottom: 45px;
+}
+
+label {
+    font-size: 20px;
+    padding-left: 13px;
+    font-family: Jost;
+    color: white;
+}
+
+h1 {
+    font-size: 28px;
+    font-family: Jost;
+    color: white;
+    margin-top: 0;
+    ;
+}
+
+h2 {
+    font-size: 18px;
+    font-family: Montserrat;
+    color: #c9c9c9;
+    margin-bottom: 0;
+    ;
+}
+
+h3 {
+    font-size: 24px;
+    font-family: Jost;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+h4 {
+    font-size: 16px;
+    font-family: Montserrat;
+    color: #c9c9c9;
+    margin-bottom: 0;
+    ;
+}
+
+h5 {
+    font-size: 14px;
+    font-family: Montserrat;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+h5 a {
+    font-size: 18px;
+    font-family: Jost;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+h6 {
+    font-size: 12px;
+    font-family: Montserrat;
+    color: #ffffff60;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+h7 {
+    font-size: 16px;
+    font-family: Jost;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+h8 {
+    font-size: 14px;
+    font-family: Montserrat;
+    color: #ffffff60;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* Chat */
+
+.messageblock_ai {
+    width: 100%;
+    width: fit-content;
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    text-align: left;
+}
+
+.messageblock_ai button {
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background-image: url("../images/devohra_logo.png");
+    background-size: cover;
+    margin-right: 25px;
+    border: 0;
+}
+
+.message_ai {
+    border-radius: 15px;
+    text-align: left;
+    background-image: linear-gradient(to right, #b923ff, #9649ff);
+    padding: 10px;
+    max-width: 450px;
+    word-wrap: break-word;
+}
+
+.messageblock_user {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    text-align: right;
+    justify-content: end;
+}
+
+.messageblock_user button {
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background-image: url("../images/user_logo.png");
+    background-size: cover;
+    margin-left: 25px;
+    border: 0;
+}
+
+.message_user {
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to right, #4b8cff, #3341ff);
+    padding: 10px;
+    max-width: 450px;
+    word-wrap: break-word;
+    cursor: pointer;
+    min-width: 0;
+    text-align: left;
+}
+
+.writing {
+    border-radius: 15px;
+    text-align: left;
+    padding: 10px;
+    max-width: 450px;
+    word-wrap: break-word;
+}
+
+.portfolio_icon {
+    margin: 25px;
+    width: 125px
+}
+
+.tag_bt {
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    margin-bottom: 10px;
+    margin: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-radius: 1000px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Jost;
+    font-size: 16px;
+    color: #c9c9c9;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.proj_content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-evenly;
+    margin: 0;
+    margin-top: 25px;
+    overflow-wrap: break-word;
+}
+
+.proj_cards {
+    min-height: 250px;
+    min-width: 171px;
+    height: 350px;
+    width: 240px;
+    border-radius: 20px;
+    border-color: #666666;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.art_cards {
+    width: 30%;
+    position: relative;
+    margin-bottom: 25px;
+    padding-bottom: 30%;
+    border-radius: 20px;
+    border-color: #666666;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.art_thumbnail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.art_title {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.art_title:hover {
+    opacity: 100%;
+}
+
+.proj_cards1 {
+    border-color: #1a1a1a;
+    border-width: 1px;
+    border-style: solid;
+    min-height: 250px;
+    min-width: 171px;
+    height: 350px;
+    width: 240px;
+    overflow: hidden;
+}
+
+.proj_th {
+    width: 100%;
+    height: 40%;
+    background-position: center;
+    background-size: cover;
+}
+
+.tags_bt {
+    border-style: none;
+    margin-bottom: 10px;
+    margin: 10px;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 1000px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Montserrat;
+    font-size: 12px;
+    color: white;
+    background-image: linear-gradient(to right, #b923ff, #9649ff);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.credits {
+    color: #ebebeb;
+    font-family: MontserratBold;
+    font-size: 20px;
+    text-shadow: 2px 2px 7px #000000;
+    transition: all 0.3s ease;
+}
+
+.credits:hover {
+    color: white;
+    text-shadow: 2px 2px 5px #ffffff20;
+    font-size: 20.1px;
+}
+
+.mylogo {
+    border-radius: 50%;
+    border: none;
+    background-image: url("../images/sadgabi_logo.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 76px;
+    height: 76px;
+    padding: 0;
+}

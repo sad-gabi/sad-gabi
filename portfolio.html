@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/Mainstyle.css">
+    <title>My Portfolio - Sad Gabi</title>
+    <link rel="icon" href="images/sadgabi_ic.png" type="image/x-icon">
+
+    <script src="scripts/chatbot.js"></script>
+
+    <script>
+
+        function overlay() {
+            document.getElementById("overlay").style.display = "flex";
+        }
+
+        function overlay_close() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function AIchat_on() {
+            document.getElementById("AIchat").style.display = "block";
+        }
+
+        function AIchat_off() {
+            document.getElementById("AIchat").style.display = "none";
+        }
+
+        function msgSize() {
+            document.getElementById("msgInput").style.height = `${this.scrollHeight}px`;;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="AI_chat_vp" id="AIchat">
+
+        <div class="header_chat">
+            <h3>Devohra <button class="beta">BETA 0.1</button></h3>
+            <h5>🟢 Online</h5>
+            <div class="logo_chat">
+                <img src="images/devohra_logo.png">
+            </div>
+        </div>
+
+        <div id="chat" class="chat">
+            <div style="text-align: center; margin-bottom: 50px;margin-top: 20px;">
+                <h4>// This is the beggining of your chat with Devohra! //</h4>
+            </div>
+            <div class="messageblock_ai">
+                <button></button>
+                <div>
+                    <h5 style="margin-left: 10px;">Devohra</h5>
+                    <div class="message_ai">
+                        <h5>Hi!</h5>
+                        <h5>I'm Devohra, and I will be assisting you today! How can I help you?</h5>
+                    </div>
+                </div>
+            </div>
+            <div id="sel_chat" class="messageblock_user">
+                <div style="text-align: right;">
+                    <h5 style="margin-right: 10px;">You</h5>
+                    <div id="sel1" onclick="rmv_selchat1(); hMkComms()" class="message_user">
+                        <h5>I wanna request for a commission</h5>
+                    </div>
+                    <div id="sel2" onclick="rmv_selchat2(); hCostComms();" class="message_user">
+                        <h5>How much do I have to pay for a commission?</h5>
+                    </div>
+                    <div id="sel3" onclick="rmv_selchat3(); hContact();" class="message_user">
+                        <h5>Where is the contact info?</h5>
+                    </div>
+                    <div id="sel4" onclick="rmv_selchat4(); hDevohra();" class="message_user">
+                        <h5>Who are you?</h5>
+                    </div>
+                </div>
+                <button></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div onclick="overlay_close(); AIchat_off()" class="overlay" id="overlay"></div>
+
+    <div class="pages1" id="pages1">
+        <div>
+            <button onclick="overlay(); AIchat_on()" id="AI_button" title="Devohra AI"
+                style="background-image: url(images/devohra_logo.png); margin-bottom: 10px;"><img
+                    src="images/devohra_ic.png" alt="Devohra Assistant"></button>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">?Need Help</h5>
+
+            <a href="index.html"><button title="About Me"
+                    style="background-image: linear-gradient(to right, #b923ff, #9649ff);">🏠</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">About Me</h5>
+
+            <a href="../hire_me.html"><button title="Hire Me"
+                    style="background-image: linear-gradient(to right, #9649ff, #6b6fff);">🔨</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">Hire Me</h5>
+
+            <a href="contact.html" style="display: none;"><button title="Contact Info"
+                    style="background-image: linear-gradient(to right, #6b6fff, #4b8cff);">💬</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000; display: none;">Contact Info</h5>
+
+            <a href="clients.html" style="display: none;"><button title="Clients & Reviews"
+                    style="background-image: linear-gradient(to right, #4b8cff, #3341ff);">📝</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000; display: none;">Clients</h5>
+        </div>
+    </div>
+
+    <div class="mainvp" id="mainvp_div" style="overflow: auto;">
+
+        <div class="header">
+            <h1>My portfolio</h1>
+            <h2>Here you can see a collection of my works.</h2>
+            <div class="logo">
+                <button class="mylogo"></button>
+        </div>
+        </div>
+
+        <div style="position: relative; height: 80%; max-height: 80%; padding-top: 0; padding-bottom: 0; overflow: visible;"
+            class="content">
+            <div style="height: 7%;"></div>
+            <div style="height: 45%;">
+                <a href="portfolio/art_portfolio.html">
+                    <div class="prtflcard">
+                        <div class="prtflcardi">
+                            <img class="portfolio_icon" src="images/art_ic.png" alt="Art portfolio icon">
+                            <div style="height: 100%;">
+                                <h3 style="padding: 25px; padding-bottom: 0; font-size: 30px;">Art Portoflio</h3>
+                                <h4 style="padding: 25px; padding-bottom: 0; padding-top: 0; font-size: 18px;">
+                                    Explore my art portfolio showcasing illustrations that convey narratives and
+                                    intricate 3D models and renders. A collection that captures
+                                    the essence of creativity.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div style="height: 5%;"></div>
+            <div style="height: 45%;">
+                <a href="portfolio/design_portfolio.html">
+                    <div class="prtflcard">
+                        <div class="prtflcardi">
+                            <img class="portfolio_icon" src="images/design_ic.png" alt="Art portfolio icon">
+                            <div style="height: 100%;">
+                                <h3 style="padding: 25px; padding-bottom: 0; font-size: 30px;">Design & Dev
+                                    Portoflio</h3>
+                                <h4 style="padding: 25px; padding-bottom: 0; padding-top: 0; font-size: 18px;">Navigate
+                                    through my design portfolio encompassing graphic design, branding, UX/UI, web
+                                    design, and solution-driven approaches. The convergence of design and
+                                    functionality.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <p></p>
+
+
+    </div>
+
+    <div class="pages" id="current_p">
+        <div>
+            <button title="You are here!"
+                style="cursor: auto; background-image: linear-gradient(to right, #b923ff, #3341ff); margin-bottom: 10px;">
+                <hb>💼</hb>
+            </button>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">My Portfolio</h5>
+            <a href="https://ko-fi.com/sadgabi"><button title="Donate Me!"
+                    style="background-image: linear-gradient(to right, #C75E7F, #F86754); padding: 0; margin-bottom: 10px; padding-top: 8px;"><img
+                        src="images/kofi_ic.png" alt="Patreon logo"></button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">Sponsor Me!</h5>
+        </div>
+    </div>
+
+</body>
+
+</html>

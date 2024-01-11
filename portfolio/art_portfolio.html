@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/Mainstyle.css">
+    <title>Art Portfolio - Sad Gabi</title>
+    <link rel="icon" href="../images/sadgabi_ic.png" type="image/x-icon">
+
+    <script src="../scripts/chatbot.js"></script>
+    <script src="../scripts/art.js"></script>
+
+    <script>
+
+        function overlay() {
+            document.getElementById("overlay").style.display = "flex";
+        }
+
+        function overlay_close() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function AIchat_on() {
+            document.getElementById("AIchat").style.display = "block";
+        }
+
+        function AIchat_off() {
+            document.getElementById("AIchat").style.display = "none";
+        }
+
+        function msgSize() {
+            document.getElementById("msgInput").style.height = `${this.scrollHeight}px`;;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="img-viewer" onclick="closeViewer(); overlay_close();"
+        style="position: absolute;  z-index: 998; height: 100%; width: 100%; display: none; justify-content: center; align-items: center;">
+        <div style="position: relative; height: 90%; max-width: 90%; min-height: auto; width: auto;">
+            <img class=".lazy-image" id="img-src" src="thumbnails/aliceatnight.jpg"
+                style="height: 100%; border-radius: 20px; box-shadow: 0 0 30px 5px #ffffff30;">
+            <div style="position: absolute; bottom: 0; margin: 25px; ">
+                <a id="img-credits" class="credits"></a>
+            </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="AI_chat_vp" id="AIchat">
+
+        <div class="header_chat">
+            <h3>Devohra <button class="beta">BETA 0.1</button></h3>
+            <h5>🟢 Online</h5>
+            <div class="logo_chat">
+                <img src="../images/devohra_logo.png">
+            </div>
+        </div>
+
+        <div id="chat" class="chat">
+            <div style="text-align: center; margin-bottom: 50px;margin-top: 20px;">
+                <h4>// This is the beggining of your chat with Devohra! //</h4>
+            </div>
+            <div class="messageblock_ai">
+                <button></button>
+                <div>
+                    <h5 style="margin-left: 10px;">Devohra</h5>
+                    <div class="message_ai">
+                        <h5>Hi!</h5>
+                        <h5>I'm Devohra, and I will be assisting you today! How can I help you?</h5>
+                    </div>
+                </div>
+            </div>
+            <div id="sel_chat" class="messageblock_user">
+                <div style="text-align: right;">
+                    <h5 style="margin-right: 10px;">You</h5>
+                    <div id="sel1" onclick="rmv_selchat1(); hMkComms()" class="message_user">
+                        <h5>I wanna request for a commission</h5>
+                    </div>
+                    <div id="sel2" onclick="rmv_selchat2(); hCostComms();" class="message_user">
+                        <h5>How much do I have to pay for a commission?</h5>
+                    </div>
+                    <div id="sel3" onclick="rmv_selchat3(); hContact();" class="message_user">
+                        <h5>Where is the contact info?</h5>
+                    </div>
+                    <div id="sel4" onclick="rmv_selchat4(); hDevohra();" class="message_user">
+                        <h5>Who are you?</h5>
+                    </div>
+                </div>
+                <button></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div onclick="overlay_close(); AIchat_off();" class="overlay" id="overlay"></div>
+
+    <div class="pages1" id="pages1">
+        <div>
+            <button onclick="overlay(); AIchat_on()" id="AI_button" title="Devohra AI"
+                style="background-image: url(images/devohra_logo.png); margin-bottom: 10px;"><img
+                    src="../images/devohra_ic.png" alt="Devohra Assistant"></button>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">?Need Help</h5>
+
+            <a href="../index.html"><button title="About Me"
+                    style="background-image: linear-gradient(to right, #b923ff, #9649ff);">🏠</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">About Me</h5>
+
+            <a href="../hire_me.html"><button title="Hire Me"
+                    style="background-image: linear-gradient(to right, #9649ff, #6b6fff);">🔨</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">Hire Me</h5>
+
+            <a href="../contact.html" style="display: none;"><button title="Contact Info"
+                    style="background-image: linear-gradient(to right, #6b6fff, #4b8cff);">💬</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000; display: none;">Contact Info</h5>
+
+            <a href="../clients.html" style="display: none;"><button title="Clients & Reviews"
+                    style="background-image: linear-gradient(to right, #4b8cff, #3341ff);">📝</button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000; display: none;">Clients</h5>
+        </div>
+    </div>
+
+    <div class="mainvp" id="mainvp_div" style="overflow: auto;">
+
+        <div class="header">
+            <h1>Art Portfolio</h1>
+            <h2>Here you can see a collection of my works.</h2>
+            <div class="logo">
+                <button class="mylogo"></button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div data-category="all" style="height: auto; display: flex; flex-wrap: wrap; font-family: Jost;">
+
+                <button
+                    style="background-image: linear-gradient(to right, #b923ff, #3341ff); color: white; border: none; padding: 6px; padding-left: 11px; padding-right: 11px;"
+                    data-category="all" class="tag_bt" onclick="TurnOnAllArt()">All (12)</button>
+
+                <button style="display: none;" data-category="gallery" class="tag_bt" onclick="TurnOnGalleries()">galleries 🏞️
+                    (2)</button>
+
+                <button data-category="illustration" class="tag_bt" onclick="TurnOnIllus()">illustrations
+                    (11)</button>
+
+                <button data-category="conceptart" class="tag_bt" onclick="TurnOnConcept()">concept
+                    art
+                    (1)</button>
+
+                <button data-category="model" class="tag_bt" onclick="TurnOnModels()">3d models
+                    (3)</button>
+
+                <button data-category="render" class="tag_bt" onclick="TurnOnRenders()">3d rendering
+                    (1)</button>
+
+            </div>
+            <div class="proj_content" style="gap: 1%;">
+
+                <!-- ANNYA -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), annya()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/annya.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Annya</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCHOOL AMIYA -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), schoolAmiya()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/schoolamiya.jpg');"></div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                School Amiya</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THE LAKE MONSTER -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), theLakeMonster()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/thelakemonster.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                The Lake Monster</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RAVEN DTIYS -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), ravenDTIYS()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/raven_dtiys.jpg');"></div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Raven DTIYS</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLIP FLAPPERS REDRAW -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), flipFlappers()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/flipflappersrd.jpg');"></div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Flip Flappers Redraw</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEER GIRL -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), deerGirl()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/deergirl.jpg');"></div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Deer Girl</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARMORED AUREA -->
+                <div data-category="illustration, conceptart, all" class="art_cards"
+                    onclick="overlay(), armoredAurea()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/armoredaurea.jpg');"></div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 13px;;">
+                                Armored Aurea</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNSPORTSMANLIKE CONDUCT -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), badBehavior()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/unsportsmanlike_conduct.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Unsportsmanlike Conduct</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SILLY INCIDENT -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), sillyIncident()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/sillyincident.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Silly Incident</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALICE AT NIGHT -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), aliceAtNight()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/aliceatnight.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Alice at Night</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEVOHRA -->
+                <div data-category="illustration, all" class="art_cards" onclick="overlay(), devohra()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/devohrathumbnail.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="illustration, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Devohra</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAMP & BUCKET -->
+                <div data-category="model, all" class="art_cards" onclick="overlay(), lampAndBucket()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/lampandbucket.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="model, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Lamp & Bucket</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAMER ROOM -->
+                <div style="display: none;" data-category="model, gallery, render, all" class="art_cards" onclick="overlay(), gamerRoom()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/gamerroom.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="model, gallery, render, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Gamer Room 🏞️</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCHOOL LIBRARY -->
+                <div style="display: none;" data-category="model, gallery, render, all" class="art_cards" onclick="overlay(), schoolLibrary()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/schoollibrary.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="model, gallery, render, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                School Library 🏞️</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MILITARY WEAPON -->
+                <div style="display: none;" data-category="model, gallery, all" class="art_cards" onclick="overlay(), militaryWeapon()">
+                    <div class="art_thumbnail" style="background-image: url('thumbnails/militaryweapon.jpg');">
+                    </div>
+                    <div class="art_title">
+                        <div class="art_thumbnail" data-category="model, gallery, all"
+                            style="background-image: linear-gradient(to bottom, #00000090, transparent); width: 100%; height: 30%;">
+                            <h3
+                                style="font-size: 18px; height: 100%; text-shadow: 2px 2px 5px #000000; white-space: nowrap; overflow: hidden; margin: 12px;">
+                                Military Weapon 🏞️</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="pages" id="current_p">
+        <div>
+            <button title="You are here!"
+                style="cursor: auto; background-image: linear-gradient(to right, #b923ff, #3341ff); margin-bottom: 10px;">
+                <hb>💼</hb>
+            </button>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">My Portfolio</h5>
+            <a href="https://ko-fi.com/sadgabi"><button title="Donate Me!"
+                    style="background-image: linear-gradient(to right, #C75E7F, #F86754); padding: 0; margin-bottom: 10px; padding-top: 8px;"><img
+                        src="../images/kofi_ic.png" alt="Patreon logo"></button></a>
+            <h5 style="text-shadow: 2px 2px 4px #000000;">Sponsor Me!</h5>
+        </div>
+    </div>
+
+</body>
+
+</html>
