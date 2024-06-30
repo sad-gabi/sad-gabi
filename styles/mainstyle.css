@@ -1,0 +1,64 @@
+:root {
+    --main-font-family: Offside;
+
+    --title1-font-szie: 96px;
+    --title2-font-size: 38px;
+    --normal-font-size: 24px;
+
+    --main-color: #1F1F2C;
+    --second-color: #202023;
+    --third-color: #121212;
+    --accent-color: #DA4404;
+    --text-color: #EDE7E4;
+
+    --fill-available: -webkit-fill-available;
+}
+
+
+@font-face {
+    font-family: Offside;
+    src: url(../fonts/Offside-Regular.ttf);
+}
+
+
+* {
+    position: relative;
+}
+
+html, body, main {
+    display: flex;
+    flex-direction: column;
+    width: var(--fill-available);
+    height: var(--fill-available);
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    background-color: #000;
+}
+
+body {
+    background-image: url(../images/sadgabi-bg.png);
+    background-position: center;
+    background-size: cover;
+}
+
+main {
+    background-color: var(--main-color);
+    height: 0;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: all 1s ease-in-out;
+}
+
+
+#navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: -webkit-fill-available;
+    height: 80px;
+    padding: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 999;
+}
