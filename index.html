@@ -5,11 +5,47 @@
 <head>
     <title>Sad Gabi - Home</title>
     <link rel="stylesheet" href="styles/mainstyle.css">
+    <link rel="icon" href="favicon.svg" type="svg+xml">
 </head>
 
 <body>
+    <div class="bgPattern"></div>
+
     <main id="main">
-        <div id="navBar"></div>
+        <div id="navBar">
+            <img src="images/firma2.png" alt="Sad Gabi logo" style="height: 60px; cursor: pointer;">
+
+            <button id="homeButton">Home</button>
+            <button id="hireMeButton">Hire me</button>
+            <button id="portfolioButton">Portfolio</button>
+            <button id="blogButton">Blog</button>
+        </div>
+
+        <div id="header" class="screen">
+            <div class="bgPattern"></div>
+
+            <div id="headerText">
+                <div id="headerTitle">
+                    <span style="color: var(--accent-color);">Sad</span> <span
+                        style="color: var(--text-color);">Gabi</span>
+                </div>
+
+                <div id="headerSubtitle">Web technologies, 2D & 3D artist and software dev </div>
+            </div>
+
+            <img src="svg/header_img.svg" alt="Sample drawing" style="height: 105vh">
+        </div>
+
+        <div id="quote">
+            <div class="quoteBraces" id="quoteBraceL">{</div>
+
+            <div id="quoteText">
+                <div id="quoteTextQuote">Creativity is intelligence having fun</div>
+                <div id="quoteTextAuthor">-Albert Einstein</div>
+            </div>
+
+            <div class="quoteBraces" id="quoteBraceB">}</div>
+        </div>
     </main>
     <script src="scripts/mainscript.js"></script>
 </body>

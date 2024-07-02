@@ -16,30 +16,46 @@
 
 
 @font-face {
-    font-family: Offside;
+    font-family: var(--normal-font-size);
     src: url(../fonts/Offside-Regular.ttf);
 }
 
 
 * {
     position: relative;
+    font-family: Offside;
 }
 
-html, body, main {
+*::-webkit-scrollbar {
+    background-color: var(--main-color);
+    cursor: pointer;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 5000px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-color);
+}
+
+
+html, body {
     display: flex;
     flex-direction: column;
-    width: var(--fill-available);
-    height: var(--fill-available);
+    width: 100vw;
     margin: 0;
     padding: 0;
-    font-family: var(--main-font);
     background-color: #000;
+    overflow: hidden;
 }
 
 body {
     background-image: url(../images/sadgabi-bg.png);
-    background-position: center;
     background-size: cover;
+    background-position: center;
 }
 
 main {
@@ -48,6 +64,23 @@ main {
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     transition: all 1s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.bgPattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/bg_pattern.jpg);
+    background-size: 10%;
+    opacity: 0.3;
+    filter: invert(0);
+    mix-blend-mode: overlay;
+    pointer-events: none;
 }
 
 
@@ -55,10 +88,109 @@ main {
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    gap: 40px;
+    align-items: center;
     width: -webkit-fill-available;
     height: 80px;
     padding: 40px;
     padding-top: 0;
     padding-bottom: 0;
+    opacity: 0;
+    transition: all 1s ease;
+    pointer-events: none;
     z-index: 999;
+}
+
+#navBar button{
+    padding: 10px;
+    border: none;
+    color: var(--text-color);
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+#navBar button:hover {
+    color: #fff;
+    scale: 1.1;
+}
+
+#navBar button:focus {
+    color: #fff;
+    outline: none;
+    scale: 1.1;
+}
+
+#header {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-image: linear-gradient(to top, var(--main-color), var(--second-color));
+    transition: all 0.3s ease;
+    overflow: visible;
+}
+
+#headerText {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    justify-content: center;
+    height: var(--fill-available);
+    padding: 120px;
+    padding-right: 10vw;
+    padding-bottom: 80px;
+    flex-grow: 1;
+}
+
+#headerTitle {
+    font-size: var(--title1-font-szie);
+}
+
+#headerSubtitle {
+    align-self: flex-end;
+    max-width: 650px;
+    text-align: end;
+    color: var(--text-color);
+    font-size: var(--title2-font-size);
+}
+
+#quote {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 120px;
+    padding-top: 160px;
+    padding-bottom: 160px;
+    margin: 0;
+}
+
+.quoteBraces {
+    font-size: 128px;
+    color: var(--text-color);
+}
+
+#quoteBraceR {
+    scale: -1;
+    transform-origin: center;
+}
+
+#quoteText {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#quoteTextQuote {
+    font-size: var(--title2-font-size);
+    color: var(--text-color);
+}
+
+#quoteTextAuthor {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    align-self: end;
 }
